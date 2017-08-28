@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  server:
+    build: ./server
+    volumes:
+      - ./server:/app
+    ports: [5000]
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+
+  nginx:
+    build: ./nginx
+    depends_on: [server]
+    ports: ['443:443']
+    environment:
+      - OAUTH_TOKEN=${OAUTH_TOKEN}
