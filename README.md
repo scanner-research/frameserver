@@ -17,14 +17,14 @@ This spawns a server on port 7500 listening for frame requests.
 
 ## Usage
 
-Here's an example of using the Python [requests](http://docs.python-requests.org/en/master/) library to get a frame. Look at the [example.py]() script. We get frame 1300 at 1/2 scale from the video `example.mp4`.
+Here's an example of using the Python [requests](http://docs.python-requests.org/en/master/) library to get a frame. Look at the [example.py](https://github.com/scanner-research/frameserver/blob/master/example.py) script. We get frame 1300 at 1/2 scale from the video `example.mp4`.
 
 To run this file, from inside the root of this repository, run:
 
 ```
 $ pip install youtube-dl
 $ youtube-dl "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -f mp4 -o example.mp4
-$ python example.mp4
+$ python example.py
 ```
 
 This generates a file `example.jpg` which you can scp/open.
