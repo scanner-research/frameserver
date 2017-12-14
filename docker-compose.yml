@@ -2,15 +2,16 @@ version: '2'
 
 services:
   frameserver:
+    image: scannerresearch/frameserver
     build:
       context: .
       args:
         cores: 16
     ports: ['7500:7500']
-    volumes: ['./src:/app']
+    volumes: ['./src:/app', '/:/host']
     environment:
-      - 'PORT=7500'
-      - 'BUCKET=esper'
-      - 'WORKERS=16'
+      - 'WORKERS=4'
       - 'AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}'
       - 'AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}'
+      - 'FILESYSTEM=local'
+      - 'BUCKET=esper'

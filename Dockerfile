@@ -19,4 +19,5 @@ RUN git clone https://github.com/scanner-research/hwang && \
 RUN pip install flask gunicorn
 
 WORKDIR /app
+ENV PORT=7500
 CMD gunicorn -c gunicorn_conf.py server:app
