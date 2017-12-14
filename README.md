@@ -1,6 +1,6 @@
 # frameserver
 
-This is a utility for efficiently serving randomly-accessed frames in a video.
+`frameserver` is a utility for efficiently serving randomly-accessed frames in a video.
 
 ## Setup
 First, install [Docker](https://docs.docker.com/engine/installation/#supported-platforms), [Python 2.7](https://www.python.org/downloads/), and [pip](https://pip.pypa.io/en/stable/installing/).
@@ -36,3 +36,5 @@ The server exposes the GET endpoint `/fetch`. This takes the following arguments
 * `frame` (required, integer): number of the frame in the video to retrieve
 * `scale` (optional, float): relative size to change the image (2.0 is twice as big, 0.5 is half as big)
 * `height` (optional, integer): target height to rescale the image to (keeps width proportional, i.e. maintains aspect ratio)
+
+It returns a JPEG binary image if successful, and a plain text Python traceback on failure.
