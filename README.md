@@ -5,7 +5,7 @@
 ## Setup
 First, install [Docker](https://docs.docker.com/engine/installation/#supported-platforms), [Python 2.7](https://www.python.org/downloads/), and [pip](https://pip.pypa.io/en/stable/installing/).
 
-```
+```bash
 $ git clone https://github.com/scanner-research/frameserver
 $ cd frameserver
 $ pip install docker-compose
@@ -21,7 +21,7 @@ Here's an example of using the Python [requests](http://docs.python-requests.org
 
 To run this file, from inside the root of this repository, run:
 
-```
+```bash
 $ pip install youtube-dl requests
 $ youtube-dl "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -f mp4 -o example.mp4
 $ python example.py
