@@ -8,7 +8,7 @@ First, install [Docker](https://docs.docker.com/engine/installation/#supported-p
 ```
 $ git clone https://github.com/scanner-research/frameserver
 $ cd frameserver
-$ pip install docker-compose requests
+$ pip install docker-compose
 $ docker-compose pull
 $ docker-compose up -d
 ```
@@ -22,7 +22,7 @@ Here's an example of using the Python [requests](http://docs.python-requests.org
 To run this file, from inside the root of this repository, run:
 
 ```
-$ pip install youtube-dl
+$ pip install youtube-dl requests
 $ youtube-dl "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -f mp4 -o example.mp4
 $ python example.py
 ```
