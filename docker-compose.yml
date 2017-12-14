@@ -1,18 +1,16 @@
 version: '2'
 
 services:
-  server:
-    build: ./server
-    volumes:
-      - ./server:/app
-    ports: [5000]
+  frameserver:
+    build:
+      context: .
+      args:
+        cores: 16
+    ports: ['7500:7500']
+    volumes: ['./src:/app']
     environment:
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-
-  nginx:
-    build: ./nginx
-    depends_on: [server]
-    ports: ['443:443']
-    environment:
-      - OAUTH_TOKEN=${OAUTH_TOKEN}
+      - 'PORT=7500'
+      - 'BUCKET=esper'
+      - 'WORKERS=16'
+      - 'AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}'
+      - 'AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}'

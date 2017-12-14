@@ -1,6 +1,0 @@
-scanner_path = "/opt/scanner"
-
-[storage]
-type = "gcs"
-bucket = "scanner-data"
-db_path = "db-will2"
