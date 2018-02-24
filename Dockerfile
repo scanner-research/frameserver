@@ -6,13 +6,9 @@ RUN git clone https://github.com/scanner-research/storehouse/ && \
     cd storehouse && \
     cd thirdparty && mkdir build && cd build && cmake .. && make -j${cores} && cd ../../ && \
     mkdir build && cd build && cmake .. && make -j${cores} && cd .. && \
-    cd python && python setup.py bdist_wheel && \
-    cd .. && pip install python/dist/*
-RUN git clone https://github.com/google/googletest && \
-    cd googletest && mkdir build && cd build && cmake .. && make -j${cores} && make install && cd .. && \
-    cd .. && rm -rf googletest
+    ./build.sh 
 RUN git clone https://github.com/scanner-research/hwang && \
-    cd hwang && \
+    cd hwang && bash deps.sh --with-boost /usr/local --with-ffmpeg /usr/local --with-protobuf /usr/local && \
     mkdir build && cd build && cmake .. && make -j${cores} && cd .. && \
     cd python && python setup.py bdist_wheel && \
     cd .. && pip install python/dist/*

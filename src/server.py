@@ -30,7 +30,7 @@ def fetch():
 
         video_file = RandomReadFile(storage, path.encode('ascii'))
 
-        video = Decoder(video_file, size=video_file.size())
+        video = Decoder(video_file)
         img = video.retrieve([frame])[0]
         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
